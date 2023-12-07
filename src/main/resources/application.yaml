@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /management
+spring:
+  profiles:
+    active: local
+  application:
+    name: superheroes
+  flyway:
+    enabled: true
+    user: ${BBDD_USER}
+    password: ${BBDD_PWD}
+    schemas: superheroes_schema
+    url: jdbc:h2:mem:superheroes
+    locations: classpath:db.migration
+  h2:
+    console:
+      enabled: true
+      settings:
+        trace: false
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:superheroes
+    driverClassName: org.h2.Driver
+    username: ${BBDD_USER}
+    password: ${BBDD_PWD}
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    #path: /swagger-ui-superheroes.html
+    operationsSorter: method
+    tagsSorter: alpha
