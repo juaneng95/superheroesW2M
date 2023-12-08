@@ -1,0 +1,136 @@
+openapi: 3.0.1
+info:
+  title: Oxigent Superheroes Artifact
+  description: Oxigent Superheroes Artifact API.
+  version: v1
+servers:
+  - url: http://localhost:8080/v1
+    description: Generated server url
+tags:
+  - name: Superheroes
+    description: Superheroes management
+paths:
+  /superhero/{id}:
+    get:
+      tags:
+        - Superheroes
+      operationId: getSuperheroById
+      summary: Call to superhero controller to get one superhero by Id.
+      description: Hook to get one superhero by Id in H2 database.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+          required: true
+          description: Superhero Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroDto'
+  /superhero/list:
+    get:
+      tags:
+        - Superheroes
+      summary: Call to superhero controller to list all superheroes.
+      description: Hook to list all superheroes in H2 database.
+      operationId: getAllSuperheroes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroDto'
+  /superhero/list/{pattern}:
+    get:
+      tags:
+        - Superheroes
+      summary: Call to superhero controller to list all superheroes delimited by a name pattern.
+      description: Hook to list all superheroes based in a path name pattern.
+      operationId: getAllSuperheroesByPattern
+      parameters:
+        - in: path
+          name: pattern
+          schema:
+            type: string
+            minLength: 1
+          required: true
+          description: Pattern to match in superheroes list.
+          example: "man"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroDto'
+  /superhero/create:
+    post:
+      tags:
+        - Superheroes
+      summary: Call to superhero controller to create a new superhero.
+      description: Hook to create a new superhero based in a request body.
+      operationId: createSuperhero
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroRest'
+      responses:
+        '201':
+          description: The Superhero has been created.
+  /superhero/update/{id}:
+    put:
+      tags:
+        - Superheroes
+      summary: Call to superhero controller to update a superhero by Id.
+      description: Hook to update a superhero based in a path Id.
+      operationId: updateSuperheroById
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+          required: true
+          description: SuperheroId
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroRest'
+      responses:
+        '200':
+          description: Superhero has been modified.
+  /superhero/delete/{id}:
+    delete:
+      tags:
+        - Superheroes
+      summary: Call to superhero controller to delete a superhero by Id.
+      description: Hook to delete a superhero based in a path Id.
+      operationId: deleteSuperheroById
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+          required: true
+          description: SuperheroId
+      responses:
+        '204':
+          description: Superhero has been deleted.

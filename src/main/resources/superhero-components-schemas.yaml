@@ -1,0 +1,103 @@
+components:
+  schemas:
+    SuperheroDto:
+      title: SuperheroDTO
+      description:  object to return data.
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        vigor:
+          type: integer
+          format: int32
+        mind:
+          type: integer
+          format: int32
+        endurance:
+          type: integer
+          format: int32
+        strength:
+          type: integer
+          format: int32
+        dexterity:
+          type: integer
+          format: int32
+        intelligence:
+          type: integer
+          format: int32
+        speed:
+          type: integer
+          format: int32
+        isActive:
+          type: boolean
+    SuperheroRest:
+      title: Application RequestBody Superhero DTO
+      description: object to receives data.
+      type: object
+      required:
+        - name
+        - vigor
+        - mind
+        - endurance
+        - strength
+        - dexterity
+        - intelligence
+        - speed
+      properties:
+        name:
+          type: string
+          nullable: false
+          minLength: 1
+          maxLength: 100
+        vigor:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        mind:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        endurance:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        strength:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        dexterity:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        intelligence:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        speed:
+          type: integer
+          nullable: false
+          minimum: 1
+          maximum: 100
+        isActive:
+          type: boolean
+          nullable: false
+      example:
+        id: 1
+        name: 'Thanos'
+        vigor: 95
+        mind: 76
+        endurance: 80
+        strength: 100
+        dexterity: 55
+        intelligence: 00
+        speed: 12
+        isActive: true

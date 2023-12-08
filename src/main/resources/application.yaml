@@ -9,8 +9,8 @@ spring:
     name: superheroes
   flyway:
     enabled: true
-    user: ${BBDD_USER}
-    password: ${BBDD_PWD}
+    user: ${DDBB_USER}
+    password: ${DDBB_PWD}
     schemas: superheroes_schema
     url: jdbc:h2:mem:superheroes
     locations: classpath:db.migration
@@ -23,8 +23,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:superheroes
     driverClassName: org.h2.Driver
-    username: ${BBDD_USER}
-    password: ${BBDD_PWD}
+    username: ${DDBB_USER}
+    password: ${DDBB_PWD}
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.H2Dialect
