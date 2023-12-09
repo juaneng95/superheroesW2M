@@ -55,7 +55,7 @@ paths:
         - Superheroes
       summary: Call to superhero controller to list all superheroes delimited by a name pattern.
       description: Hook to list all superheroes based in a path name pattern.
-      operationId: getAllSuperheroesByPattern
+      operationId: getSuperheroesByPattern
       parameters:
         - in: path
           name: pattern
@@ -86,7 +86,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroRest'
+              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroEntityRest'
       responses:
         '201':
           description: The Superhero has been created.
@@ -111,7 +111,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroRest'
+              $ref: 'superhero-components-schemas.yaml#/components/schemas/SuperheroEntityRest'
       responses:
         '200':
           description: Superhero has been modified.

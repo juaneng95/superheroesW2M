@@ -34,7 +34,7 @@
     <jackson.databind.nullable.version>0.2.1</jackson.databind.nullable.version>
     <springfox.swagger2.version>3.0.0</springfox.swagger2.version>
     <openapi.generator.maven.plugin.version>6.2.1</openapi.generator.maven.plugin.version>
-    <h2.version>2.2.224</h2.version>
+    <h2.version>2.2.220</h2.version>
     <jaxb.runtime.version>4.0.2</jaxb.runtime.version>
     <jakarta.xml.version>4.0.0</jakarta.xml.version>
   </properties>

@@ -11,7 +11,7 @@ spring:
     enabled: true
     user: ${DDBB_USER}
     password: ${DDBB_PWD}
-    schemas: superheroes_schema
+    schemas: SUPERHEROES_SCHEMA
     url: jdbc:h2:mem:superheroes
     locations: classpath:db.migration
   h2:

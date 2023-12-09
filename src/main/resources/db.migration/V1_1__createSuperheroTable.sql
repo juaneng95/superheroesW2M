@@ -1,5 +1,5 @@
 -- CREATE TABLE SUPERHERO
-CREATE TABLE IF NOT EXISTS superheroes_schema.superhero (
+CREATE TABLE IF NOT EXISTS SUPERHEROES_SCHEMA.SUPERHERO (
  	id bigint NOT NULL AUTO_INCREMENT,
  	name varchar(50) NOT NULL DEFAULT 'Unassigned',
  	vigor smallint NOT NULL DEFAULT 0,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS superheroes_schema.superhero (
 );
 
 -- INSERT INTO SUPERHERO
-INSERT INTO superheroes_schema.superhero
+INSERT INTO SUPERHEROES_SCHEMA.SUPERHERO
     (name, vigor, mind, endurance, strength, dexterity, intelligence, speed, is_active, created_at, modified_at)
 VALUES
     ('Superman', 90, 30, 80, 85, 60, 50, 80, true, now()::timestamp, now()::timestamp),
