@@ -15,16 +15,21 @@ Superheroes CRUD application to W2M: https://github.com/juaneng95/superheroesW2M
 
 ## Execution
 
-Execute clean install.
+Configure the project structure with:
+- `SDK`: 21
+- `Language Level`: 21
+- 
+Execute `clean install` with the maven correctly configured.
 
-Environment Variables:
-- `BBDD_USER`
-- `BBDD_PWD`
+Environment Variables (Run):
+- `BBDD_USER` = admin
+- `BBDD_PWD` = admin
 
-To see all the coverage of the test, you must see the result of jacoco.
+To see all the test coverage you must see the jacoco or run with coverage "Superheroes tests".
 
 ## Usage
 
 - H2 Console (admin/admin): **http://localhost:8080/management/h2-console/**
-- Swagger: **http://localhost:8080/management/swagger-ui/index.html**
-- Jacoco Coverage result: **http://localhost:63342/superheroes/boot/target/site/jacoco-aggregate/index.html**
+- Swagger: **http://localhost:8080/management/swagger-ui/index.html#/**
+- Jacoco Coverage result: **http://localhost:63342/superheroesW2M/target/site/jacoco/index.html**
+- Docker: docker build -t superheroes:latest .

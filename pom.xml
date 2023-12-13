@@ -29,14 +29,11 @@
     <jacoco.version>0.8.11</jacoco.version>
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
-    <snakeyaml.version>2.2</snakeyaml.version>
     <springdoc.openapi.starter.version>2.3.0</springdoc.openapi.starter.version>
     <jackson.databind.nullable.version>0.2.1</jackson.databind.nullable.version>
     <springfox.swagger2.version>3.0.0</springfox.swagger2.version>
     <openapi.generator.maven.plugin.version>6.2.1</openapi.generator.maven.plugin.version>
     <h2.version>2.2.220</h2.version>
-    <jaxb.runtime.version>4.0.2</jaxb.runtime.version>
-    <jakarta.xml.version>4.0.0</jakarta.xml.version>
     <sonar.coverage.jacoco.xmlReportPaths>
       ${project.basedir}/target/site/
       jacoco-aggregate/jacoco.xml
@@ -112,18 +109,6 @@
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
       <version>${springfox.swagger2.version}</version>
-    </dependency>
-    <!-- API, java.xml.bind module -->
-    <dependency>
-      <groupId>jakarta.xml.bind</groupId>
-      <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>${jakarta.xml.version}</version>
-    </dependency>
-    <!-- Runtime, com.sun.xml.bind module -->
-    <dependency>
-      <groupId>org.glassfish.jaxb</groupId>
-      <artifactId>jaxb-runtime</artifactId>
-      <version>${jaxb.runtime.version}</version>
     </dependency>
     <!-- JPA -->
     <dependency>
