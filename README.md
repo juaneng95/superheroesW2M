@@ -1,6 +1,6 @@
 ## Summary
 
-Superheroes CRUD application to W2M: 
+Superheroes CRUD application to W2M: https://github.com/juaneng95/superheroesW2M
 
 ## Technology
 
@@ -9,13 +9,13 @@ Superheroes CRUD application to W2M:
 - OpenApi 3.0.1
 - Maven 3.8.8
 - Jacoco 0.8.11
-- Mockito 5.1.1
-- Flyway Core 9.16.3
-- H2 Database 2.1.214
+- Mockito 5.8.0
+- Flyway Core 9.22.3
+- H2 Database 2.1.220
 
 ## Execution
 
-Execute clean install...
+Execute clean install.
 
 Environment Variables:
 - `BBDD_USER`

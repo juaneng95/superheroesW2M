@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "c4650254-2777-4a17-992e-4a79a74ce956",
+		"name": "W2M",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27668908"
+	},
+	"item": [
+		{
+			"name": "getAllSuperheroes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSuperheroById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSuperheroesByPattern",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/list/man",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"list",
+						"man"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSuperhero",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pedro\",\r\n  \"vigor\": 1,\r\n  \"mind\": 1,\r\n  \"endurance\": 1,\r\n  \"strength\": 1,\r\n  \"dexterity\": 1,\r\n  \"intelligence\": 1,\r\n  \"speed\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSuperheroById",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Echenique\",\r\n    \"vigor\": 1,\r\n    \"mind\": 1,\r\n    \"endurance\": 1,\r\n    \"strength\": 1,\r\n    \"dexterity\": 1,\r\n    \"intelligence\": 1,\r\n    \"speed\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSuperheroById",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/management/superhero/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"management",
+						"superhero",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

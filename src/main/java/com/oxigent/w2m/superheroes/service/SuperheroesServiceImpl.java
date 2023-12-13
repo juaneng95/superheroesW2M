@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,6 +26,7 @@ public class SuperheroesServiceImpl implements SuperheroesService {
   private final SuperheroesRepository shRepository;
   private final SuperheroesMapper shMapper;
 
+  @Cacheable("superheroes")
   @Override
   public List<SuperheroDto> getAllSuperheroes() {
     return shRepository.findAll().stream().map(shMapper::entityToDto).toList();
@@ -50,6 +53,7 @@ public class SuperheroesServiceImpl implements SuperheroesService {
         .toList();
   }
 
+  @CacheEvict(value = "superheroes", allEntries = true)
   @Override
   public void createSuperhero(SuperheroEntityRest inBody) throws SuperheroesException {
 
@@ -65,6 +69,7 @@ public class SuperheroesServiceImpl implements SuperheroesService {
     shRepository.save(superheroEntity);
   }
 
+  @CacheEvict(value = "superheroes", allEntries = true)
   @Override
   public void updateSuperhero(Long id, SuperheroEntityRest inBody) throws SuperheroesException {
 
@@ -89,6 +94,7 @@ public class SuperheroesServiceImpl implements SuperheroesService {
     shRepository.save(superheroEntity);
   }
 
+  @CacheEvict(value = "superheroes", allEntries = true)
   @Override
   public void deleteSuperhero(Long id) throws NotFoundSuperheroesException {
     // Looking for hero...

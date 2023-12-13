@@ -142,6 +142,11 @@
       <version>${h2.version}</version>
       <scope>runtime</scope>
     </dependency>
+    <!-- CACHE -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
