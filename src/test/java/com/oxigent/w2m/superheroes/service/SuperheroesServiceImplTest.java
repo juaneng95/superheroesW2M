@@ -198,6 +198,37 @@ class SuperheroesServiceImplTest {
   }
 
   @Test
+  void updateSuperhero_NotFoundSuperheroesException(){
+    // WHEN
+    when(shRepository.findById(any(Long.class))).thenReturn(Optional.empty());
+
+    // THEN
+    NotFoundSuperheroesException ex =
+        assertThrows(
+            NotFoundSuperheroesException.class,
+            () -> shService.updateSuperhero(any(Long.class), shEntityRest),
+            Constants.SUPERHERO_NOT_FOUND);
+
+    assertEquals(Constants.SUPERHERO_NOT_FOUND, ex.getMessage());
+    assertEquals(404, ex.getCode());
+  }
+
+  @Test
+  void updateSuperhero_WithDifferentName() throws SuperheroesException {
+
+    // WHEN
+    when(shRepository.findById(any(Long.class))).thenReturn(Optional.ofNullable(superheroEntity));
+    when(shMapper.entityRestToEntity(any(SuperheroEntityRest.class))).thenReturn(superheroEntity);
+
+    // THEN
+    assert superheroEntity != null;
+    shEntityRest.setName(superheroEntity.getName());
+    shService.updateSuperhero(superheroDto.getId(), shEntityRest);
+
+    assertEquals(shEntityRest.getName(), superheroEntity.getName());
+  }
+
+  @Test
   void deleteSuperhero_OK() throws NotFoundSuperheroesException {
     // WHEN
     when(shRepository.findById(any(Long.class)))

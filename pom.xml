@@ -37,6 +37,10 @@
     <h2.version>2.2.220</h2.version>
     <jaxb.runtime.version>4.0.2</jaxb.runtime.version>
     <jakarta.xml.version>4.0.0</jakarta.xml.version>
+    <sonar.coverage.jacoco.xmlReportPaths>
+      ${project.basedir}/target/site/
+      jacoco-aggregate/jacoco.xml
+    </sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
   <dependencies>
@@ -182,23 +186,30 @@
         <version>${jacoco.version}</version>
         <configuration>
           <excludes>
-            <exclude>**/exception/**</exclude>
-            <exclude>**/model/**</exclude>
-            <exclude>**/mapper/**</exclude>
-            <exclude>**/api/**</exclude>
-            <exclude>**/handler/**</exclude>
-            <exclude>**/constant/**</exclude>
-            <exclude>**/repository/**</exclude>
+            <exclude>**/SuperheroesApplication.class</exclude>
+            <exclude>**/config/**</exclude>
             <exclude>**/entity/**</exclude>
+            <exclude>**/exception/**</exclude>
+            <exclude>**/mapper/**</exclude>
+            <exclude>**/repository/**</exclude>
+            <exclude>**/util/**</exclude>
+            <exclude>**/api/**</exclude>
+            <exclude>**/model/**</exclude>
           </excludes>
         </configuration>
         <executions>
           <execution>
-            <id>report-aggregate</id>
-            <phase>verify</phase>
             <goals>
-              <goal>report-aggregate</goal>
+              <goal>prepare-agent</goal>
             </goals>
+            <id>jacoco-prepare-agent</id>
+          </execution>
+          <execution>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <id>jacoco-report</id>
+            <phase>test</phase>
           </execution>
         </executions>
       </plugin>
